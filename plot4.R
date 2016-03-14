@@ -11,9 +11,17 @@ powerData$DateTime<-strptime(paste(as.character(powerData$Date),as.character(pow
 
 #create the plot
 pdf(file="plot4.pdf")
-par(mfrow=C(2,2),mar=c(2,2,2,4))
+par(mfrow=c(2,2),mar=c(4,4,2,2))
+
+with(powerData,plot(DateTime,Global_active_power,type="l",col="black",xlab="",ylab = "Global Active Power (kilowatts)"))
+
+with(powerData,plot(DateTime,Voltage,type="l",col="black",ylab = "Voltage"))
+
 with(powerData,plot(DateTime,Sub_metering_1,type="l",col="black",xlab="",ylab = "Energy sub metering", main = ""))
 with(powerData,lines(DateTime,Sub_metering_2,type="l",col="red"))
 with(powerData,lines(DateTime,Sub_metering_3,type="l",col="blue"))
 legend("topright",col=c("black","red","blue"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),lty=1)
+
+with(powerData,plot(DateTime,Global_reactive_power,type="l",col="black"))
+
 dev.off()
