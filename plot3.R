@@ -10,7 +10,7 @@ powerData<-subset(powerData,Date=="1/2/2007" | Date=="2/2/2007")
 powerData$DateTime<-strptime(paste(as.character(powerData$Date),as.character(powerData$Time),sep="-"),"%d/%m/%Y-%H:%M:%S")
 
 #create the plot
-pdf(file="plot3.pdf")
+png(file="plot3.png",width=480,height=480)
 with(powerData,plot(DateTime,Sub_metering_1,type="l",col="black",xlab="",ylab = "Energy sub metering", main = ""))
 with(powerData,lines(DateTime,Sub_metering_2,type="l",col="red"))
 with(powerData,lines(DateTime,Sub_metering_3,type="l",col="blue"))

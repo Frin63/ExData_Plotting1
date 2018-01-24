@@ -10,7 +10,7 @@ powerData<-subset(powerData,Date=="1/2/2007" | Date=="2/2/2007")
 powerData$DateTime<-strptime(paste(as.character(powerData$Date),as.character(powerData$Time),sep="-"),"%d/%m/%Y-%H:%M:%S")
 
 #create the plot
-pdf(file="plot4.pdf")
+png(file="plot4.png",width=480,height=480)
 par(mfrow=c(2,2),mar=c(4,4,2,2))
 
 with(powerData,plot(DateTime,Global_active_power,type="l",col="black",xlab="",ylab = "Global Active Power (kilowatts)"))
